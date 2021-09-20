@@ -58,7 +58,7 @@ if __name__ == '__main__':
             mult = find_mod(x, n)
             inverse = find_inverse(mult, n)
             print("The inverse is: ", inverse, "!!!!", sep='')
-            #hello
+
             print("This means that ", x, "(", inverse, ") % ", n, " = 1", sep='')
             break
 
