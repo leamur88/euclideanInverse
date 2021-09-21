@@ -57,9 +57,13 @@ if __name__ == '__main__':
         if response == "y" or response == "yes":
             mult = find_mod(x, n)
             inverse = find_inverse(mult, n)
-            print("The inverse is: ", inverse, "!!!!", sep='')
+            if (x * inverse) % n ==1:
+                print("The inverse is: ", inverse, "!!!!", sep='')
+                print("This means that ", x, "(", inverse, ") % ", n, " = 1", sep='')
+                break
+            else:
+                print("Inverse unfortunately could not be calculated...")
 
-            print("This means that ", x, "(", inverse, ") % ", n, " = 1", sep='')
-            break
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
