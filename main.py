@@ -2,7 +2,7 @@ import math
 
 
 class NoInverseExists(Exception):
-    print("This equation has no inverse")
+    pass
 
 
 # Press ⌃R to execute it or replace it with your code.
@@ -17,17 +17,20 @@ def print_hi(name):
 def find_mod(x, n):
     multipliers = []
     i = 0
-    while x != 0:
-        temp = x
-        multipliers.append(math.floor(n / x))
-        x = (n % x)
-        print("Step ", i, ": ", n, " = ", multipliers[i], "(", temp, ")", " + ", x, sep='')
-        n = temp
-        i += 1
-    if n != 1:
-        raise NoInverseExists()
-
-    return multipliers
+    try:
+        while x != 0:
+            temp = x
+            multipliers.append(math.floor(n / x))
+            x = (n % x)
+            print("Step ", i, ": ", n, " = ", multipliers[i], "(", temp, ")", " + ", x, sep='')
+            n = temp
+            i += 1
+        if n != 1:
+            raise NoInverseExists()
+        else:
+            return multipliers
+    except NoInverseExists:
+        print("This equation has no inverse")
 
 
 def find_inverse(mult, n):
@@ -41,10 +44,12 @@ def find_inverse(mult, n):
         step += 1
         subtraction = auxillary[step - 2] - auxillary[step - 1] * mult[i]
         modulo = subtraction % n
-        print("p", step, " = (", auxillary[step - 2], " - ", auxillary[step - 1], "(", mult[i], ")) % ", n, " = ", modulo, sep='')
+        print("p", step, " = (", auxillary[step - 2], " - ", auxillary[step - 1], "(", mult[i], ")) % ", n, " = ",
+              modulo, sep='')
         auxillary.append(modulo)
         i += 1
     return auxillary[-1]
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -57,13 +62,11 @@ if __name__ == '__main__':
         if response == "y" or response == "yes":
             mult = find_mod(x, n)
             inverse = find_inverse(mult, n)
-            if (x * inverse) % n ==1:
+            if (x * inverse) % n == 1:
                 print("The inverse is: ", inverse, "!!!!", sep='')
                 print("This means that ", x, "(", inverse, ") % ", n, " = 1", sep='')
                 break
             else:
                 print("Inverse unfortunately could not be calculated...")
-
-
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
