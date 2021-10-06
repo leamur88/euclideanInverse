@@ -5,6 +5,6 @@ you can now rely on this easy to use calculator. All you have to do is boot up y
 This will prompt you with your x and n and solve for the inverse instantly. 
 
 ## Sources
-I would not have been able to do [this](http://www-math.ucdenver.edu/~wcherowi/courses/m5410/exeucalg.html) without this website. In case it gets taken down I have also downloaded the site and posted it in the repo 
+I would not have been able to do this without [this](http://www-math.ucdenver.edu/~wcherowi/courses/m5410/exeucalg.html) website. In case it gets taken down I have also downloaded the site and posted it in the repo 
 under the title "Extended Euclidean Algorithm.html"
 
